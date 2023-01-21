@@ -1,0 +1,73 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update User</title>
+  <link rel="stylesheet" href="/src/public/css/style.css">
+  <style>
+    fieldset {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      gap: 30px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #111;
+    }
+
+    .button {
+      padding: 10px 20px;
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li><a class="active" href="/">Home</a></li>
+    <li><a href="/delete-user">Create Users</a></li>
+  </ul>
+  <div class="form">
+    <div class="input-group">
+      <form action="/delete-user" method="POST">
+        <fieldset>
+          <legend>Delete user:</legend>
+          <label class="hide" for="email">Id:</label>
+          <input class="hide" type="text" name="userId" value="<%= userEdit.id %>"><br><br>
+          <label for="email">Are you sure to delete this user with email: </label>
+          <input type="text" name="email" value="<%= userEdit.email %>"><br><br>
+          <button class="button">Confirm</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

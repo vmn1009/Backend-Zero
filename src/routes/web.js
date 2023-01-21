@@ -1,0 +1,14 @@
+const { Router } = require('express');
+const express = require('express');
+const { getHomePage, getUpdatePage } = require('../controllers/homeController');
+const { getAbout, postCreateUser, getCreatePage, postUpdateUser, postDeleteUser, postHandleRemoteUser } = require('../controllers/homeController');
+const router = express.Router();
+router.get('/', getHomePage);
+router.get('/About', getAbout);
+router.get('/create', getCreatePage);
+router.get('/update/:id', getUpdatePage);
+router.post('/create_user', postCreateUser);
+router.post('/update_user', postUpdateUser);
+router.post('/delete-uder/:id', postDeleteUser);
+router.post('/delete-user', postHandleRemoteUser);
+module.exports = router;

@@ -1,0 +1,124 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/public/css/style.css">
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #111;
+    }
+
+    .button {
+      padding: 10px 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      border: 2px solid black;
+      font-size: 18px;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+      background-color: coral;
+    }
+
+    .table-container {
+      padding: 30px;
+    }
+
+    .title {
+      font-size: 35px;
+    }
+
+    form {
+      display: inline;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="/create">Create User</a></li>
+  </ul>
+  <div class="table-container">
+
+    <div class="list-user">
+      <span class="title">List Users</span>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Action</th>
+        </tr>
+        <% for (var i=0; i < listUsers.length; i++) { %>
+          <tr>
+            <td>
+              <%=listUsers[i].id%>
+            </td>
+            <td>
+              <%=listUsers[i].email%>
+            </td>
+            <td>
+              <%=listUsers[i].name%>
+            </td>
+            <td>
+              <%=listUsers[i].city%>
+            </td>
+            <td>
+              <a href="/update/<%=listUsers[i].id%>">Edit</a>
+              <form action="/delete-uder/<%=listUsers[i].id%>" method="POST">
+                <button>Delete</button>
+              </form>
+            </td>
+          </tr>
+          </>
+          <% } %>
+
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>
